@@ -8,7 +8,7 @@
 
 <body>
   <h3>TO DO LIST</h3>
-  <form action="todo.jsp">
+  <form action="store-todo.jsp" method="post">
     <input type="text" name="thingToDo" /> <br></br> <input
       type="checkbox" name="isClear" value="clear" /> Clear all todos <br />
     <br /> <input type="submit" value="Submit" placeholder="Input" />
@@ -21,14 +21,6 @@
   if (todos == null) {
   	todos = new ArrayList<String>();
   	session.setAttribute("myToDoList", todos);
-  }
-
-  String todo = request.getParameter("thingToDo");
-  if (todo != null && todo != "") {
-  	todos.add(todo);
-  }
-  if (request.getParameter("isClear") != null && request.getParameter("isClear").equals("clear")) {
-  	todos.removeAll(todos);
   }
   %>
 
